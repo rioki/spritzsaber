@@ -1,0 +1,4 @@
+*.o
+*.d
+ciphersaber.exe
+ciphersaber
