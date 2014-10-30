@@ -82,7 +82,6 @@ void whip(spritz_state* state, size_t r)
     {
         state->w = state->w + 1;
     }
-    // CHECKME
     while (gcd(state->w, (spritz_byte)SPRITZ_N) != (spritz_byte)1);
 }
 
