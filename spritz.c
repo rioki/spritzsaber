@@ -24,16 +24,42 @@ void swap(spritz_byte* a, spritz_byte* b)
     *b = t;
 }
 
-spritz_byte gcd(spritz_byte a, spritz_byte b)
+spritz_byte gcd(spritz_byte u, spritz_byte v)
 {
-  spritz_byte c;
-  while (a != 0) 
-  {
-     c = a; 
-     a = b%a;  
-     b = c;
-  }
-  return b;
+    if (u == v)
+    {
+        return u;
+    }
+ 
+    if (u == 0)
+    {
+        return v;
+    }
+ 
+    if (v == 0)
+    {
+        return u;
+    }
+ 
+    if (~u & 1)
+    {
+        if (v & 1)
+            return gcd(u >> 1, v);
+        else 
+            return gcd(u >> 1, v >> 1) << 1;
+    }
+ 
+    if (~v & 1)
+    {
+        return gcd(u, v >> 1);
+    }
+    
+    if (u > v)
+    {
+        return gcd((u - v) >> 1, v);
+    }
+ 
+    return gcd((v - u) >> 1, u);
 }
 
 void update(spritz_state* state)

@@ -1,5 +1,5 @@
 
-CC     ?= gcc
+CC      = gcc
 CFLAGS += -g -Wall
 
 src = $(wildcard *.c)
